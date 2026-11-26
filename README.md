@@ -212,3 +212,6 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 - [Candidate acceptance protocol](docs/candidate-evaluation.md): matched native/legacy/candidate/adaptive evaluation; model outcomes not yet measured.
 - [CACHE candidate](candidates/cache/SKILL.md): minimum sufficient context and selective read-set freshness revalidation; no authority upgrade from a projection.
 - [Experimental candidate bundle](packaging/README.md): immutable eight-skill snapshot, reproducible ZIP builder, and regression receipt; ZIP build and live host acceptance remain open.
+
+- [FORGE candidate](candidates/forge/SKILL.md): verified artifact construction and bounded failure recovery.
+- [TRACE candidate](candidates/trace/SKILL.md): execution provenance, recoverable handoff and delivery verification.
