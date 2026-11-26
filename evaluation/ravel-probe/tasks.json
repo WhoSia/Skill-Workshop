@@ -1,0 +1,181 @@
+{
+  "format": "workshop-ravel-decision-probe-v1",
+  "instructions": "For each case select exactly one listed action and status. If numeric is specified, return its number. Give a short reason in your own words. Return a JSON array of objects with id, action, status, optional value, and reason. Do not claim hypothetical actions executed. All costs and facts are supplied synthetic assumptions.",
+  "cases": [
+    {
+      "id": "routine",
+      "prompt": "A source provides an exact arithmetic result: 17+26=43. It is current and the user asks only for the sum. No authority transition or tool work is required. Choose the next action.",
+      "actions": [
+        "direct-answer",
+        "launch-method-review",
+        "retrieve-again"
+      ],
+      "claim": "Choose the status of the requested answer.",
+      "statuses": [
+        "complete",
+        "hold",
+        "reject"
+      ]
+    },
+    {
+      "id": "shared",
+      "prompt": "A and B are independently required analyses; both consume the same verified unchanged dataset D. D costs 7 to reacquire, A costs 3 and B costs 4. D is already available and its exact read-set is current. Budget 7. Choose the feasible action and report newly incurred declared cost.",
+      "actions": [
+        "reuse-D-and-run-A-B",
+        "reacquire-D-first",
+        "run-A-only"
+      ],
+      "statuses": [
+        "plan",
+        "hold",
+        "complete"
+      ],
+      "numeric": "cost"
+    },
+    {
+      "id": "blocked",
+      "prompt": "The requested conclusion requires an original measurement file. Only a secondary summary is available; the original cannot currently be accessed. Reformatting the summary will not recover the missing measurements. Choose next action and claim status.",
+      "actions": [
+        "request-original-or-hold",
+        "certify-from-summary",
+        "reframe-to-avoid-file"
+      ],
+      "statuses": [
+        "hold",
+        "pass",
+        "reject"
+      ]
+    },
+    {
+      "id": "frozen",
+      "prompt": "Before observing results a test charter required accuracy >=0.80. The completed test achieved 0.76, with no measurement defect. An alternative threshold 0.75 is proposed after observing the result. Choose what to do with the original test and its status.",
+      "actions": [
+        "retain-original-and-separate-new-study",
+        "lower-original-threshold",
+        "rerun-until-pass"
+      ],
+      "statuses": [
+        "reject",
+        "pass",
+        "hold"
+      ]
+    },
+    {
+      "id": "joint",
+      "prompt": "Two hidden binary variables x and y are independently uniform; the target is XOR. Reading x costs 1, y costs 1, both together determine the target. A direct full-state instrument costs 3. Budget 2; maximize exact target accuracy, then minimize cost. Choose a plan and declare cost.",
+      "actions": [
+        "read-both-bits",
+        "read-one-bit",
+        "full-state-instrument",
+        "stop-at-prior"
+      ],
+      "statuses": [
+        "plan",
+        "complete",
+        "hold"
+      ],
+      "numeric": "cost"
+    },
+    {
+      "id": "interrupted",
+      "prompt": "An authorized write of a report to a shared repository timed out. The tool returned no completion result. The repository can be inspected without mutation. Choose the next action and status of delivery.",
+      "actions": [
+        "inspect-remote-state",
+        "blindly-repeat-write",
+        "claim-delivery"
+      ],
+      "statuses": [
+        "unknown",
+        "complete",
+        "reject"
+      ]
+    },
+    {
+      "id": "stale",
+      "prompt": "Results A and B have different root dependencies. A's root revision changed after A was verified; B's exact read-set remains current. Both are needed; reverify A costs 2 and B costs 5. No alternative provider. Budget 2. Select action and declare newly incurred cost.",
+      "actions": [
+        "reverify-A-reuse-B",
+        "reuse-both",
+        "rerun-both"
+      ],
+      "statuses": [
+        "plan",
+        "complete",
+        "hold"
+      ],
+      "numeric": "cost"
+    },
+    {
+      "id": "parallel",
+      "prompt": "Two independent computations read an immutable source and take 3 and 5 time units. Their outputs do not interact until a final merge of duration 2. Two workers are authorized; no shared mutable resources or overhead. Choose minimum makespan schedule and report time.",
+      "actions": [
+        "parallel-then-merge",
+        "serial-then-merge",
+        "merge-before-compute"
+      ],
+      "statuses": [
+        "plan",
+        "complete",
+        "hold"
+      ],
+      "numeric": "makespan"
+    },
+    {
+      "id": "rival",
+      "prompt": "Higher scores are better. A candidate scored 0.82, weak baseline 0.75, strong preregistered baseline 0.86, on identical scope. The claim is superiority to both baselines. Report decision, claim status, and candidate minus strong baseline.",
+      "actions": [
+        "retain-both-comparisons",
+        "report-weak-only",
+        "average-away-reversal"
+      ],
+      "statuses": [
+        "reject",
+        "pass",
+        "hold"
+      ],
+      "numeric": "delta"
+    },
+    {
+      "id": "irrelevant",
+      "prompt": "A previously failed hypothesis has a decisive admissible counterexample. Ten further tests reproduce the same mechanism, and no outstanding obligation requires repetition. A different proposed test distinguishes two surviving revised hypotheses at equal cost. Choose next action, keeping the original claim status.",
+      "actions": [
+        "test-distinct-rival",
+        "repeat-same-attack",
+        "erase-counterexample"
+      ],
+      "statuses": [
+        "reject",
+        "pass",
+        "hold"
+      ]
+    },
+    {
+      "id": "scope",
+      "prompt": "A program passes all deterministic unit tests, but a proposed scientific claim is that it improves real human research outcomes. No human outcome observations were collected. Decide how to report and status of the scientific claim.",
+      "actions": [
+        "report-engineering-pass-separately",
+        "promote-science",
+        "reject-all-engineering"
+      ],
+      "statuses": [
+        "hold",
+        "pass",
+        "reject"
+      ]
+    },
+    {
+      "id": "stop",
+      "prompt": "The requested deliverable is verified, all mandatory conditions are satisfied, and remaining optional analysis cannot change the decision. User requests no further output beyond the deliverable. Choose the next action.",
+      "actions": [
+        "deliver-and-stop",
+        "add-review-loop",
+        "expand-objective"
+      ],
+      "statuses": [
+        "complete",
+        "hold",
+        "reject"
+      ]
+    }
+  ]
+}
