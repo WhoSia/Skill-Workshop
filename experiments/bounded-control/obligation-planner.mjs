@@ -11,7 +11,20 @@ export function planObligations({catalog,required,initialFacts=[],budget,maxStep
   for(const a of actions){const s=Object.hasOwn(scores,a.id)?scores[a.id]:0.5;if(!Number.isFinite(s)||s<0||s>1)throw Error("invalid score");a.score=s}
   actions.sort((a,b)=>b.score-a.score||(a.id<b.id?-1:a.id>b.id?1:0));
   if(todo.some(id=>!actions.some(a=>a.id===id)))return {status:"HOLD",reason:"required-unavailable",plan:[],visited:0};
-  const target=actions.reduce((m,a,i)=>todo.includes(a.id)?m|(1<<i):m,0);
+  // Positive-cost monotone actions outside the backward prerequisite cone cannot improve an optimum.
+  // Keep every admitted alternative producer; do not prune by score or by one selected explanation.
+  const relevant=new Set(todo), needed=new Set(), known=new Set(initialFacts);
+  for(const a of actions)if(relevant.has(a.id))for(const x of a.requires)if(!known.has(x))needed.add(x);
+  let changed=true;
+  while(changed){
+    changed=false;
+    for(const a of actions)if(!relevant.has(a.id)&&a.provides.some(x=>needed.has(x))){
+      relevant.add(a.id);changed=true;
+      for(const x of a.requires)if(!known.has(x))needed.add(x);
+    }
+  }
+  const candidates=actions.filter(a=>relevant.has(a.id));
+  const target=candidates.reduce((m,a,i)=>todo.includes(a.id)?m|(1<<i):m,0);
   const memo=new Map();let visited=0,limited=false;
   function solve(mask,facts,cost,steps){
     if((mask&target)===target)return {cost:0,plan:[]};
@@ -19,8 +32,8 @@ export function planObligations({catalog,required,initialFacts=[],budget,maxStep
     if(memo.has(mask))return memo.get(mask);
     if(++visited>stateLimit){limited=true;return null}
     let best=null;
-    for(let i=0;i<actions.length;i++){
-      const a=actions[i],bit=1<<i;
+    for(let i=0;i<candidates.length;i++){
+      const a=candidates[i],bit=1<<i;
       if((mask&bit)||cost+a.cost>budget||!a.requires.every(x=>facts.has(x)))continue;
       // A non-obligation with no new facts is useless in this monotone model.
       if(!(target&bit)&&a.provides.every(x=>facts.has(x)))continue;
