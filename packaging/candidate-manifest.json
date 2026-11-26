@@ -140,7 +140,7 @@
     },
     {
       "path": "experiments/bounded-control/method-composition.test.mjs",
-      "gitBlob": "08a27f512846a5ec8adc766ce008030b3644a",
+      "gitBlob": "08a27f512846a5ec8adc766ce008068030b3644a",
       "kind": "test"
     },
     {
