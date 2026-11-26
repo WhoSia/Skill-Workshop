@@ -34,7 +34,27 @@ export function createEvidenceIndex({roots,nodes,at=0}){
     return {eligible:active.length>0,roots:[...tokens].sort(),active};
   }
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
-  for(let i=0;i<defs.length;i++)states[i]=calculate(i);
+  // Instance-local freshness stamps: active proof dependencies, not just root unions.
+  const stamps=[], proofInputs=[], certificates=new WeakMap();
+  function dependencies(i){
+    const d=defs[i];
+    if(d.kind==="root"){const r=input[i];return [r.revision,r.admitted,r.expiresAt]}
+    return states[i].active.flatMap(k=>[k,...d.alternatives[k].map(j=>stamps[j])]);
+  }
+  const sameInputs=(a,b)=>a.length===b.length&&a.every((v,j)=>v===b[j]);
+  for(let i=0;i<defs.length;i++){
+    states[i]=calculate(i);proofInputs[i]=dependencies(i);stamps[i]={};
+  }
+  function capture(ids){
+    if(!Array.isArray(ids)||!ids.length||new Set(ids).size!==ids.length)fail("invalid certificate read-set");
+    const indices=ids.map(id=>{const i=byId.get(id);if(i===undefined||!states[i].eligible)fail("ineligible certificate dependency");return i});
+    const token=Object.freeze({ids:Object.freeze([...ids])});
+    certificates.set(token,indices.map(i=>[i,stamps[i]]));return token;
+  }
+  function isCurrent(token){
+    const entries=certificates.get(token);
+    return !!entries&&entries.every(([i,stamp])=>states[i].eligible&&stamps[i]===stamp);
+  }
   function snapshot(){
     return defs.map((d,i)=>({id:d.id,scope:d.scope,kind:d.kind,eligible:states[i].eligible,roots:states[i].roots.map(x=>JSON.parse(x)),active:[...states[i].active]}));
   }
@@ -49,11 +69,19 @@ export function createEvidenceIndex({roots,nodes,at=0}){
     }
     // All input validation happens before mutation.
     at=nextAt;for(const [i,r] of pendingRoots)input[i]=r;
-    const queue=new Set(),changed=[];let derivedEvaluations=0;
-    const refresh=i=>{const next=calculate(i);if(!same(states[i],next)){states[i]=next;changed.push(defs[i].id);for(const j of children[i])queue.add(j)}};
+    const queue=new Set(),changed=[],certificateChanged=[];let derivedEvaluations=0;
+    const refresh=i=>{
+      const next=calculate(i),structuralChange=!same(states[i],next);
+      if(structuralChange){states[i]=next;changed.push(defs[i].id)}
+      const deps=dependencies(i);
+      if(structuralChange||!sameInputs(proofInputs[i],deps)){
+        proofInputs[i]=deps;stamps[i]={};certificateChanged.push(defs[i].id);
+        for(const j of children[i])queue.add(j);
+      }
+    };
     for(const i of rootIds)refresh(i);
     while(queue.size){let i=Infinity;for(const j of queue)if(j<i)i=j;queue.delete(i);derivedEvaluations++;refresh(i)}
-    return {changed,rootChecks:rootIds.length,derivedEvaluations,authority:"STRUCTURAL_ELIGIBILITY_ONLY"};
+    return {changed,certificateChanged,rootChecks:rootIds.length,derivedEvaluations,authority:"STRUCTURAL_ELIGIBILITY_ONLY"};
   }
-  return {snapshot,update};
+  return {snapshot,update,capture,isCurrent};
 }
