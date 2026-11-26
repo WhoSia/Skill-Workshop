@@ -71,7 +71,12 @@ class BundleTests(unittest.TestCase):
 
     def test_missing_import(self):
         self.manifest["files"] = [x for x in self.manifest["files"] if x["path"] != "experiments/bounded-control/a.mjs"]
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, "missing module dependency"):
+            self.run_build()
+
+    def test_kind_mismatch(self):
+        self.manifest["files"][2]["kind"] = "module"
+        with self.assertRaisesRegex(ValueError, "invalid or duplicate member"):
             self.run_build()
 
     def test_path_traversal(self):
