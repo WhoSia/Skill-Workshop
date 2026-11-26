@@ -236,7 +236,7 @@ Integration: `composition.test.mjs` uses the actual fetched implementations of f
 
 | Decision | R | V | E | F | B | P | Status |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| CACHE freshness integration | 0.98 | 0.96 | 0.92 | 0.95 | 0.23 | 0.938 | next feasible after package check |
+| CACHE freshness integration | 0.98 | 0.96 | 0.92 | 0.95 | 0.23 | 0.938 | next feasible before package check |
 | Portable package and host smoke check | 0.98 | 0.97 | 0.83 | 0.80 | 0.30 | 0.899 | next feasible |
 | Additional independent methods | 0.89 | 0.84 | 0.73 | 0.95 | 0.28 | 0.840 | lower priority |
 | Recover exact legacy baseline | 1.00 | 0.99 | 0.90 | 0.25 | 0.40 | 0.829 | blocked in current session |
@@ -244,4 +244,12 @@ Integration: `composition.test.mjs` uses the actual fetched implementations of f
 | Candidate revision from observed task failures | 1.00 | 0.99 | 0.50 | 0.35 | 0.25 | 0.799 | await actual outputs |
 | Production release | 0.70 | 0.55 | 0.22 | 0.30 | 0.75 | 0.470 | hold |
 
-The next feasible product work is a portable candidate package and host smoke check, subject to verification that it is genuinely usable and does not substitute for the legacy release. Actual model comparison remains the highest-value blocked target. Do not keep writing helper algorithms to avoid that bottleneck.
+The next feasible product work is to integrate CACHE freshness, then prepare a portable candidate package and host smoke check without substituting for the legacy release. Actual model comparison remains the highest-value blocked target. Do not keep writing helper algorithms to avoid that bottleneck.
+
+### Priority return edge — CACHE selected before packaging
+
+The initial reassessment's CACHE score (.938) exceeds the portable-package score (.899); no actual dependency requires packaging first. Correct the proposed order rather than follow the earlier handoff mechanically. CACHE's historical contract was reviewed and `candidates/cache/SKILL.md` created (393 whitespace-delimited words): bounded current-state retrieval, exact canonical dependency resolution, selective revalidation, projection coherence, no self-certification, and explicit cross-session limits of instance-local tokens. This is instruction integration, not a measured model-level cache hit-rate improvement.
+
+Reassessment: CACHE instruction prototype completed; further CACHE optimization requires observed use. Portable candidate package (.899) is now the highest feasible remaining item in this ledger. Live matched-model evaluation retains maximal expected benefit (V=1.00) but remains execution-blocked; do not confuse ordering score with product value. No mandatory new helper, no production release.
+
+Engineering method assessment: native connector discovery and verified readback used (MCP-Hub-style leverage); independent MCP-Hub skill execution not established in this round. Minimal changes to existing index and tests rather than a new certificate service (Ponytail-style design); no claim of invoking the independent plugin. Compared actual operation counts before/after (fast-anything-style measurement); no measured timing bottleneck or justification for native port. These describe applied principles, not plugin invocation receipts.
