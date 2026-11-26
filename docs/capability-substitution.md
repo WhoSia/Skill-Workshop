@@ -41,3 +41,22 @@ Verification: 509 checks in V8, including 500 generated models compared with ind
 | Live native versus candidate model comparison | 1.00 | 1.00 | .90 | .20 | .45 | blocked |
 
 R=relevance, V=expected value, E=evidence, F=feasibility, B=burden. Subjective 0–1 estimates. No new release, no GitHub Actions.
+
+## Research OS consumer audit and selective reuse
+
+Reviewed the existing integrated runtime, multidimensional claim scope and RELAY contracts. Important discovery: NAPKIN is also named in RELAY's atomic-slice decomposition contract, beyond original seed preservation. Archive access alone cannot replace that role. Preserve task slicing, original goal, pre-formalization seed identity and protected distinctions as separate obligations; independent NAPKIN implementation remains deferred, not retired.
+
+| Consumer obligation | Replacement candidate | Status |
+|---|---|---|
+| Original seed and pre-formalization order | Archive plus verified source reference | partial observed retrieval; ordering/integrity contract not fully tested |
+| RELAY atomic task slicing | Native reasoning / ORBIT / RAVEL | proposed, no migration |
+| Current projection freshness and coherence | CACHE plus evidence index | freshness component tested; projection coherence still open |
+| Exact owner, root role, scope and evidence class | Existing Research OS authority contracts | preserve; no implicit substitution |
+| Continuation legality under regime change | ADAPTER/HARBOR/STEWARD capabilities | preserve; conditional dependencies remain |
+| Runtime receipt and delivery | TRACE plus native receipts | candidate only |
+
+Implemented `reuse-registry.mjs` over existing evidence-index certificates and capability resolver. Begin captures the declared read-set; complete consumes a single-use ticket and admits only a matching caller-verified output while the certificate is current. Reuse checks freshness again and rejects externally injected verifiedFacts on this path. No execution or durable cross-session persistence is provided. Actual semantic verification, read-set completeness, scope binding and authority admission remain caller responsibilities. A declared port revision is not automatically the root revision. Plans must be revalidated before consequential execution.
+
+V8: 2,012 checks, 1,000 updates across 200 generated root-only models. Independent oracle tracks unchanged root revisions without resurrecting previously invalidated results. Declared rerun cost 3,458 vs full 12,000, reduction 71.18%; excludes validation overhead, no timing or LLM outcome claim. Targeted checks: in-flight invalidation, expiry, failed or wrong output, single-use ticket, bypass rejection, independent reuse. No Node CLI run. No actual consumer migration.
+
+Priority estimates (R,V,E,F,B; all subjective): reuse integration (1,.99,.95,.98,.18) complete; consumer audit (1,1,.90,.90,.25) partial; actual consumer migration (.99,.98,.50,.45,.40) hold; packaged regression update (.98,.95,.94,.98,.12) next; live model evaluation (1,1,.90,.20,.45) blocked. Avoid additional infrastructure until a concrete product bottleneck warrants it.
