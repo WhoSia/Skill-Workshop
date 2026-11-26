@@ -205,3 +205,43 @@ Composition: AXIOM supplies the precise proposition/domain, LANTERN finds a vali
 | Prospective comparison of integrated and native behavior | 1.00 | .72 | 1.00 | .86 | .46 | next |
 
 R=relevance, F=feasibility, V=expected product value, E=evidence, B=burden; subjective decision estimates, not calibrated probabilities. Actual activation, model-level quality and resource use, exact legacy comparison and consumer equivalence remain open. Existing 2.4.4 distribution and Research OS unchanged. No GitHub Actions used.
+
+## Priority-driven product loop — evidence freshness, MOSAIC and COURT (2026-11-27)
+
+User direction: continuously reassess priorities, complete the highest-value feasible changes, and score substantive decisions on 0–1 scales rather than opening numbered stages. The objective is measured skill product capability, not growth in helper or document count.
+
+This is a retrospective decision receipt, not a preregistration of the scores. R=relevance, V=expected product benefit, E=evidence, F=execution feasibility, B=burden (larger worse). Proposed ordering heuristic P=.25R+.35V+.15E+.15F+.10(1−B). The weights are a design choice, not empirical calibration. Hard prerequisites, permissions, consumer compatibility and evidence limits remain independent; a blocked high-value task is not executed by lowering its gate.
+
+| Decision | R | V | E | F | B | P | Status |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Evidence read-set freshness repair | 1.00 | 0.99 | 0.97 | 0.98 | 0.20 | 0.969 | done |
+| Existing helper composition regression | 1.00 | 0.98 | 0.94 | 0.99 | 0.14 | 0.968 | done |
+| Matched evaluation protocol | 1.00 | 0.98 | 0.90 | 0.99 | 0.16 | 0.960 | done |
+| MOSAIC/COURT candidates | 0.99 | 0.97 | 0.92 | 0.98 | 0.22 | 0.950 | done |
+| Live matched model evaluation | 1.00 | 1.00 | 0.86 | 0.20 | 0.45 | 0.814 | blocked: independent execution surface not found |
+| More unrelated helper algorithms | 0.55 | 0.48 | 0.45 | 0.95 | 0.50 | 0.566 | defer |
+| Formal production release | 0.70 | 0.55 | 0.22 | 0.30 | 0.75 | 0.470 | blocked |
+
+Evidence index defect: a root expiration extension can leave the structural snapshot and union of root revisions identical even when the active justification has changed. The existing structural snapshot remains backward-compatible as a working projection; new instance-local `capture(ids)` and `isCurrent(token)` support conservative read-set freshness checking. Each eligible node carries an opaque stamp that is replaced on structural changes or changes to active dependency stamps and root metadata. Unchanged independent branches retain their stamps; tokens cannot be reused across index instances, serialized as durable certificates, or revived after a change and reversal. Caller-declared admission remains trusted; tokens do not certify truth, prove semantic equivalence or establish that a particular action actually executed. `certificateChanged` is separate from the prior structural `changed` field.
+
+Actual V8 execution of the previous and revised code: original regression 1,212/1,212 checks on 1,200 updates, identical structural oracle results. New certificate regression 965 checks across 300 generated graphs / 1,200 updates plus targeted cases. Existing generated cohort's derived evaluations increased from 18,679 to 19,825 (6.14% extra versus previous local update) because freshness propagation catches additional relevant changes; still below full 38,400 evaluations. These counts are not timing. This correctness tradeoff is intentional, not claimed as a speedup. New token checking is instance-local only.
+
+MOSAIC and COURT candidate instruction prototypes are now available. MOSAIC: preserve claim-level lineage, shared ancestry, disagreement and unresolved obligations; no new authority by merge. COURT: adjudicate actual claims and criteria rather than engineering surrogates, revalidate changed evidence only, do not impose ceremonial adjudication on exploration. Both are based on historical semantic contracts, not released equivalence. Public repository contains generic instructions, no private research records.
+
+Integration: `composition.test.mjs` uses the actual fetched implementations of fiber audit, refinement selection, obligation planner, evidence index and contrast audit in one synthetic scenario. Eight checks passed, covering a conflicting observation, minimum-cost joint refinement, actual recheck, stale evidence despite unchanged eligibility, rival reversal, omitted strong rival and failure of a required prerequisite. This does not test live model skill selection, autonomous execution or external evidence.
+
+`docs/candidate-evaluation.md` establishes matched native/legacy/candidate/adaptive arms and evaluation boundaries. No independent model execution surface found; exact legacy archive bytes remain unavailable. No model results collected, no production release, no CI invocation. Existing tests executed in V8, not independently in Node CLI.
+
+## Reassessment after completed changes
+
+| Decision | R | V | E | F | B | P | Status |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| CACHE freshness integration | 0.98 | 0.96 | 0.92 | 0.95 | 0.23 | 0.938 | next feasible after package check |
+| Portable package and host smoke check | 0.98 | 0.97 | 0.83 | 0.80 | 0.30 | 0.899 | next feasible |
+| Additional independent methods | 0.89 | 0.84 | 0.73 | 0.95 | 0.28 | 0.840 | lower priority |
+| Recover exact legacy baseline | 1.00 | 0.99 | 0.90 | 0.25 | 0.40 | 0.829 | blocked in current session |
+| Run fresh matched model tasks | 1.00 | 1.00 | 0.90 | 0.20 | 0.45 | 0.820 | blocked |
+| Candidate revision from observed task failures | 1.00 | 0.99 | 0.50 | 0.35 | 0.25 | 0.799 | await actual outputs |
+| Production release | 0.70 | 0.55 | 0.22 | 0.30 | 0.75 | 0.470 | hold |
+
+The next feasible product work is a portable candidate package and host smoke check, subject to verification that it is genuinely usable and does not substitute for the legacy release. Actual model comparison remains the highest-value blocked target. Do not keep writing helper algorithms to avoid that bottleneck.
