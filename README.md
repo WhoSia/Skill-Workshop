@@ -215,3 +215,11 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 
 - [FORGE candidate](candidates/forge/SKILL.md): verified artifact construction and bounded failure recovery.
 - [TRACE candidate](candidates/trace/SKILL.md): execution provenance, recoverable handoff and delivery verification.
+
+- [ORBIT candidate](candidates/orbit/SKILL.md): task-local, dependency-sensitive composition and scheduling.
+- [SENTINEL candidate](candidates/sentinel/SKILL.md): action-specific permission and capability admission.
+- [ATLAS candidate](candidates/atlas/SKILL.md): canonical longitudinal research knowledge and selective genealogy recovery.
+
+### Compositional invariant — reusable capability blocks
+
+Skills are reusable capability definitions, not fixed pipeline stages. A task may invoke zero, one or several instances of any skill. Edges belong to the particular invocation and its actual typed inputs, permission, freshness, provenance or resource constraints. There is no mandatory RAVEL root, fixed skill hierarchy or universal sequence. A new observation may replace a subgraph, reuse unaffected results, or start a new invocation of the same capability. Scientific justification must remain acyclic even when research control iterates. Prefer native reasoning if sufficient; parallelism is conditional on actual independence and available execution. Diagrams are examples of task-local compositions, not the architecture's required topology.
