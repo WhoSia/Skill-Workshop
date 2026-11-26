@@ -180,3 +180,9 @@ Initial negative cases: obsolete method invocation; an apparently successful too
 - Chen et al. (2025), [ScienceAgentBench](https://arxiv.org/abs/2410.05080); Starace et al. (2025), [PaperBench](https://arxiv.org/abs/2504.01848); Lu et al. (2024), [The AI Scientist](https://arxiv.org/abs/2408.06292): research-task assessment, reproduction, and automated research workflows.
 
 These are method donors and competing approaches, not evidence that Skill-Workshop is novel or superior. The next milestone is the dependency census and design falsification, not an immediate new implementation or release.
+
+## Research design notes
+
+- [Adaptive research control — study 02](docs/adaptive-control-study-02.md): resource-bounded metareasoning, three competing architectures, two distinct dependency graphs, ten proposed consumer compatibility witnesses, and a falsification protocol.
+
+Prefer native reasoning or a compact fixed template when it is sufficient; local adaptive repair is a research candidate, not a mandatory runtime. The proposed controller must earn its coordination overhead through observed task-level benefit. No runtime migration has been approved or performed.
