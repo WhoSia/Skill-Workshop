@@ -108,3 +108,28 @@ Verify: 905 assertions in V8, including 300 generated finite problems (5 worlds,
 Generated cohort: exact strictly beat fixed in 112/300 and greedy in 49/300; stopped without a method in 16/300. Mean exact-minus-greedy utility .0087899152. These frequencies characterize the chosen artificial generator only, not real tasks. No measured compute/latency overhead, model performance, or calibrated priors. The exact planner is bounded to 16 worlds and 10 methods, with exponential search in method count; the numeric implementation uses floating-point comparisons with tolerance, not formal real arithmetic. Greedy policy node utility stores its one-step estimate; the top-level replay utility evaluates the whole realized greedy policy.
 
 Iterate: the main negative result is that adaptive optimality alone does not justify always running lookahead. Conditional routing, joint complementarity and cheap stopping are separate design choices. An expressive controller needs an estimate of model uncertainty and planning overhead; when these are not reliable, use direct reasoning or simple routing and treat the finite solver as an oracle on declared models. Next create a small, prospectively frozen set of research task traces, distinguish outcome-model misspecification from method-selection error, and compare cost-adjusted external outcomes. No expansion into a general planner until a concrete task warrants it. Origin classification: ENABLING, return edge = observed improvement over native/fixed baselines on research work. Existing controller, obligation planner, evidence index, 2.4.4 and Research OS remain unchanged. No GitHub Actions used.
+
+## RAVEL iteration 05 — rival coverage and contrast reversal (2026-11-27)
+
+Status: retrospective method-transfer experiment; not a calibrated router or production migration. Internal research records were consulted on an authorized private surface; no private source pages, participant data, or unpublished measurements are copied into this public repository. Generic fixtures below are synthetic.
+
+Discover: a method may change a decision by adding a missing comparator, replacing an inadequate null, or separating an estimand from its surrogate. Prior retrospective and follow-up records distinguish changed action selection from demonstrated improvement in scientific outcomes. A fixed scoring system cannot infer the strength of an omitted rival from a high implementation score.
+
+Plan: a minimal reusable operator rather than another orchestration layer. Freeze the target, direction of preference, comparator roster and scope. For each admitted comparable rival, compute an oriented contrast. Return missing/incompatible rivals, contrast range, sign and a proposed next action. A sign reversal prevents a blanket direction claim; missing comparators are still visible even when a reversal has already been witnessed. Additional rivals are listed separately and do not silently alter a frozen roster. Scope labels and roster are caller-supplied, not independently verified. The result is descriptive and does not yield p-values, causal estimates, a confidence interval, or proof that the roster is sufficient.
+
+| Decision | R | F | V | E | B (higher = worse) | Disposition |
+|---|---:|---:|---:|---:|---:|---|
+| Extract method triggers from real research histories | 1.00 | .95 | .99 | .90 | .25 | retain |
+| Preserve a missing comparator as an explicit state | .99 | .99 | .97 | .92 | .07 | test |
+| Report contrast direction conditional on rival | 1.00 | .99 | .98 | .93 | .06 | test |
+| Use a fixed roster as proof of rival sufficiency | .35 | .99 | .20 | .05 | .05 | reject |
+| Train a router on retrospectively hand-labelled cases and report its test accuracy on those cases | .69 | .95 | .21 | .10 | .30 | reject |
+| Prospective decision/action/outcome comparison with native baseline | 1.00 | .75 | 1.00 | .79 | .47 | next |
+
+Scores are provisional judgment, not measured probability. R=relevance, F=feasibility, V=expected decision value, E=available evidence, B=burden.
+
+Execute: `contrast-audit.mjs` and `contrast-audit.test.mjs`. Run `node experiments/bounded-control/contrast-audit.test.mjs`.
+
+Verify: 1,512 assertions in V8, including 500 generated fixtures with independent extrema and permutation checks; 12 targeted cases cover missing/incompatible/extra comparators, orientation, ties and invalid values. Separately applied the operator to three already-exposed aggregate historical comparisons on the private research surface: two had opposite signs across the declared rivals, one did not improve on its baseline. These are arithmetic reconstructions of reported results, not raw-data reruns, independent evaluation, or newly discovered lab outcomes. The exact tested code and test text were fetched back after commit. No wall-clock benchmark or native CLI run was performed. No GitHub Actions used.
+
+Iterate: the reusable pattern is conditional contrast, not a new mandatory stage. Stronger-rival discovery and scope matching still need substantive domain judgment; the operator only makes consequences inspectable after the inputs are supplied. Future prospective task trials should record the native plan before exposing method advice, then measure plan changes, executed actions, actual outcomes, and extra cost separately. A historical case that informed design is development-only and cannot be used as unseen validation. Include cases where the native plan is already adequate and the intervention should be omitted. Preserve the existing 2.4.4 distribution and Research OS consumer contracts. Origin classification: ENABLING, with return edge to demonstrated decision changes on genuine research tasks.
