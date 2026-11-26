@@ -1,0 +1,6 @@
+import {resolveCapabilities} from './capability-resolver.mjs';
+import {planObligations} from './obligation-planner.mjs';
+function reuseTest(resolve,plan){
+const a={contract:"seed",scope:"task",revision:"1"},b={contract:"result",scope:"task",revision:"1"};const provider={id:"check",cost:1,requires:[a],offers:[b],available:true,authorized:true,equivalenceVerified:true,current:true,effect:"local-readonly"};const fact={...a,current:true,verified:true};const x={obligations:[a,b],providers:[provider],budget:1,planObligations:plan};let checks=0;const ok=(v)=>{checks++;if(!v)throw Error("reuse test "+checks)};let z=resolve({...x,verifiedFacts:[fact]});ok(z.cost===1&&z.providers.join()==="check"&&z.reused.length===1);ok(resolve({...x,verifiedFacts:[{...fact,current:false}]}).status==="HOLD");ok(resolve({...x,verifiedFacts:[{...fact,verified:false}]}).status==="HOLD");ok(resolve({...x,verifiedFacts:[{...fact,revision:"2"}]}).status==="HOLD");ok(resolve({...x,verifiedFacts:[{...fact,scope:"other"}]}).status==="HOLD");ok(resolve({...x,obligations:[a],providers:[],budget:0,verifiedFacts:[fact]}).cost===0);ok(resolve({...x,verifiedFacts:[fact,fact]}).cost===1);return {checks}
+}
+console.log(JSON.stringify(reuseTest(resolveCapabilities,planObligations)));
