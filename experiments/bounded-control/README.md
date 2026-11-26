@@ -76,3 +76,35 @@ Verify: 12 targeted assertions plus 1,200 generated update assertions (300 graph
 Iterate: distinguish STRUCTURAL_ELIGIBILITY_ONLY from actual verification of a new research result. A source revision may preserve a structural route while invalidating an execution certificate bound to old evidence. Re-execution must therefore be driven by a separate certificate/dependency receipt. No scientific promotion by recomputation. No cyclic graph, open-world semantics, authority widening, clock synchronization, real source resolution, or durable persistence in this experiment. Root scans and Set minimum selection are intentionally simple; profile before introducing indexed timers or a priority queue. A full recomputation may be cheaper for dense or small graphs. Do not grow the evidence engine before demonstrating a controller-facing counterexample: stale certificate versus unchanged eligibility, followed by actual local replanning.
 
 Origin return edge: this is ENABLING, not evidence of superior research intelligence. Next compare an adaptive composition against direct reasoning/fixed planning on a task trace where a critique changes the decision, and test only the additional contract required by that trace. Preserve 2.4.4 and Research OS consumers unchanged. No GitHub Actions used.
+
+## RAVEL iteration 04 — decision-aware method composition (2026-11-27)
+
+Status: finite model experiment; not a new runtime, LLM performance result, or Research OS migration.
+
+Discover: the controller's independent candidate score cannot represent a method that has no immediate decision benefit but enables a useful second method. Conversely, a costly orchestration layer is unnecessary if direct reasoning or a greedy choice is adequate. Study decision utility rather than raw novelty or amount of acquired information.
+
+| Design decision | R | F | V | E | B (high = worse) | Disposition |
+|---|---:|---:|---:|---:|---:|---|
+| Explicit direct/no-method option | 1.00 | .99 | .98 | .97 | .03 | test |
+| Equal worst-case budget for fixed, greedy and adaptive policies | 1.00 | .98 | .99 | .94 | .08 | test |
+| Finite deterministic observation model | .96 | .99 | .88 | .85 | .12 | test |
+| Exhaustive adaptive optimum as reference, not default runtime | .98 | .94 | .95 | .90 | .25 | test |
+| Positive marginal-utility greedy policy as inexpensive rival | .99 | .99 | .95 | .92 | .08 | test |
+| Always invoke exact adaptive planning | .62 | .70 | .45 | .30 | .78 | reject |
+| Learn outcome models from real task traces | 1.00 | .68 | .99 | .72 | .48 | next |
+| General stochastic/continuous planner before empirical tasks | .70 | .40 | .55 | .32 | .90 | defer |
+
+R=relevance, F=feasibility, V=expected decision value, E=available evidence, B=burden; judgments, not calibrated probabilities.
+
+Model: finite weighted possible worlds, each with a correct decision; each admitted optional method has a fixed positive integer cost and a deterministic observation in each world. Stop chooses the maximum posterior decision mass (0-1 loss). Utility = expected correctness minus penalty times expected cost; every realized path obeys the same hard budget. Compare direct stop, optimal nonadaptive fixed subset (all selected methods executed), one-step greedy adaptive selection with stopping, and exact adaptive selection with stopping. The exact recursion partitions the surviving worlds by the observation and recurses on the remaining methods and budget. No method reuse; unadmitted methods excluded. The fixed baseline cannot stop early or branch; the greedy baseline can. Neither the correctness labels nor outcome model are learned or independently verified.
+
+Execute: `method-composition.mjs` and `method-composition.test.mjs`. Run `node experiments/bounded-control/method-composition.test.mjs`.
+
+Verify: 905 assertions in V8, including 300 generated finite problems (5 worlds, 4 methods, seed 20261127). Exact adaptive utility agreed with a separate un-memoized array-based exhaustive recursion, and policy replay agreed with the exact policy objective. Two constructive witnesses:
+
+- Conditional specialization, four equally likely decisions, two unit-cost actions maximum, zero penalty: direct .25, optimal fixed .75, greedy adaptive 1.00, exact adaptive 1.00. Branching helps, expensive lookahead does not.
+- XOR, four equally likely worlds, two bits jointly determine the binary decision, unit cost, penalty .04: direct .50, fixed .92, greedy .50, exact adaptive .92. The individual observations have zero immediate decision value, but the pair is valuable; fixed composition is already adequate.
+
+Generated cohort: exact strictly beat fixed in 112/300 and greedy in 49/300; stopped without a method in 16/300. Mean exact-minus-greedy utility .0087899152. These frequencies characterize the chosen artificial generator only, not real tasks. No measured compute/latency overhead, model performance, or calibrated priors. The exact planner is bounded to 16 worlds and 10 methods, with exponential search in method count; the numeric implementation uses floating-point comparisons with tolerance, not formal real arithmetic. Greedy policy node utility stores its one-step estimate; the top-level replay utility evaluates the whole realized greedy policy.
+
+Iterate: the main negative result is that adaptive optimality alone does not justify always running lookahead. Conditional routing, joint complementarity and cheap stopping are separate design choices. An expressive controller needs an estimate of model uncertainty and planning overhead; when these are not reliable, use direct reasoning or simple routing and treat the finite solver as an oracle on declared models. Next create a small, prospectively frozen set of research task traces, distinguish outcome-model misspecification from method-selection error, and compare cost-adjusted external outcomes. No expansion into a general planner until a concrete task warrants it. Origin classification: ENABLING, return edge = observed improvement over native/fixed baselines on research work. Existing controller, obligation planner, evidence index, 2.4.4 and Research OS remain unchanged. No GitHub Actions used.
