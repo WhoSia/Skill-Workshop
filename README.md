@@ -202,3 +202,6 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 
 - [SCOUT candidate 01](candidates/scout/SKILL.md): gap-directed canonical-first source discovery; no claim admission.
 - [AXIOM candidate 01](candidates/axiom/SKILL.md): formal structure and counterexample-driven reasoning, with an optional [finite observation-fiber checker](experiments/bounded-control/fiber-audit.mjs). [Test receipt and limitations](experiments/bounded-control/README.md#product-iteration-07--scout-and-axiom-candidate-01-2026-11-27).
+
+- [LANTERN candidate 01](candidates/lantern/SKILL.md): targeted admissible counterexamples and discriminating next tests; no adjudication authority.
+- [PIVOT candidate 01](candidates/pivot/SKILL.md): selective, freeze-preserving representation change with an optional [minimum-cost finite observation refinement helper](experiments/bounded-control/refinement-selector.mjs). [Test receipt and limitations](experiments/bounded-control/README.md#product-iteration-08--lantern-and-pivot-candidate-01-2026-11-27).
