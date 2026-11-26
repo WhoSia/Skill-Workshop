@@ -186,3 +186,7 @@ These are method donors and competing approaches, not evidence that Skill-Worksh
 - [Adaptive research control — study 02](docs/adaptive-control-study-02.md): resource-bounded metareasoning, three competing architectures, two distinct dependency graphs, ten proposed consumer compatibility witnesses, and a falsification protocol.
 
 Prefer native reasoning or a compact fixed template when it is sufficient; local adaptive repair is a research candidate, not a mandatory runtime. The proposed controller must earn its coordination overhead through observed task-level benefit. No runtime migration has been approved or performed.
+
+## Executable research experiments
+
+- [Bounded control experiment](experiments/bounded-control/README.md): minimal synchronous research control loop, scored candidate selection, independent admission gates and mandatory-obligation tracking. Run `node experiments/bounded-control/controller.test.mjs`. Synthetic functional checks only; no production runtime or Research OS migration.
