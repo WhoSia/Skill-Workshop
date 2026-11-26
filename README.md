@@ -192,3 +192,10 @@ Prefer native reasoning or a compact fixed template when it is sufficient; local
 - [Bounded control experiment](experiments/bounded-control/README.md): minimal synchronous research control loop, scored candidate selection, independent admission gates and mandatory-obligation tracking. Run `node experiments/bounded-control/controller.test.mjs`. Synthetic functional checks only; no production runtime or Research OS migration.
 
 - [Decision-aware method composition](experiments/bounded-control/method-composition.mjs): finite optional-method selection experiment comparing direct, optimal fixed, greedy adaptive and exact adaptive policies. [Reproduction and limitations](experiments/bounded-control/README.md#ravel-iteration-04--decision-aware-method-composition-2026-11-27). The exact solver is a research reference, not the default routing policy; real research outcomes and coordination overhead remain unmeasured.
+
+## Product R&D — candidate skills
+
+The goal is a better usable skill product, not an ever-growing orchestration framework. Optimize research output, task completion, goal fidelity, latency and resource use against native and legacy baselines; preserve binding consumer contracts. Advance candidate versions only when the evidence supports a usable improvement; retain rollback and separate measured results from hypotheses.
+
+- [RAVEL candidate 01](candidates/ravel/SKILL.md): compact standalone research-control instruction prototype. Not a released replacement for 2.4.4.
+- [Planner prerequisite pruning and regression receipt](experiments/bounded-control/README.md#product-iteration-06--ravel-candidate-01-and-prerequisite-pruning-2026-11-27): improvement to the existing experimental monotone planner; no demonstrated model-level benefit yet.
