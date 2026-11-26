@@ -205,3 +205,8 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 
 - [LANTERN candidate 01](candidates/lantern/SKILL.md): targeted admissible counterexamples and discriminating next tests; no adjudication authority.
 - [PIVOT candidate 01](candidates/pivot/SKILL.md): selective, freeze-preserving representation change with an optional [minimum-cost finite observation refinement helper](experiments/bounded-control/refinement-selector.mjs). [Test receipt and limitations](experiments/bounded-control/README.md#product-iteration-08--lantern-and-pivot-candidate-01-2026-11-27).
+
+- [MOSAIC candidate](candidates/mosaic/SKILL.md): claim-specific synthesis with provenance and conflict preservation.
+- [COURT candidate](candidates/court/SKILL.md): claim-specific adjudication and selective evidence revalidation.
+- [Read-set freshness and composition tests](experiments/bounded-control/README.md#priority-driven-product-loop--evidence-freshness-mosaic-and-court-2026-11-27): structural certificate invalidation, combined regression and scored priorities.
+- [Candidate acceptance protocol](docs/candidate-evaluation.md): matched native/legacy/candidate/adaptive evaluation; model outcomes not yet measured.
