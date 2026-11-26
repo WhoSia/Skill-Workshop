@@ -199,3 +199,6 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 
 - [RAVEL candidate 01](candidates/ravel/SKILL.md): compact standalone research-control instruction prototype. Not a released replacement for 2.4.4.
 - [Planner prerequisite pruning and regression receipt](experiments/bounded-control/README.md#product-iteration-06--ravel-candidate-01-and-prerequisite-pruning-2026-11-27): improvement to the existing experimental monotone planner; no demonstrated model-level benefit yet.
+
+- [SCOUT candidate 01](candidates/scout/SKILL.md): gap-directed canonical-first source discovery; no claim admission.
+- [AXIOM candidate 01](candidates/axiom/SKILL.md): formal structure and counterexample-driven reasoning, with an optional [finite observation-fiber checker](experiments/bounded-control/fiber-audit.mjs). [Test receipt and limitations](experiments/bounded-control/README.md#product-iteration-07--scout-and-axiom-candidate-01-2026-11-27).
