@@ -2,14 +2,19 @@
  * All provider equivalence, source ordering and admission are caller-verified declarations.
  * No provider is executed here; no authority is created.
  */
-export function resolveCapabilities({obligations,providers,budget,planObligations}){
+export function resolveCapabilities({obligations,providers,budget,verifiedFacts=[],planObligations}){
  const str=x=>typeof x==="string"&&x.trim().length>0;
- if(typeof planObligations!=="function"||!Array.isArray(obligations)||!obligations.length||!Array.isArray(providers)||!Number.isSafeInteger(budget)||budget<0)throw Error("invalid capability request");
+ if(typeof planObligations!=="function"||!Array.isArray(obligations)||!obligations.length||!Array.isArray(providers)||!Array.isArray(verifiedFacts)||!Number.isSafeInteger(budget)||budget<0)throw Error("invalid capability request");
  const ids=new Set(),keys=new Set();
  const key=x=>JSON.stringify([x.contract,x.scope,x.revision]);
  for(const o of obligations){
   if(!o||!str(o.contract)||!str(o.scope)||!str(o.revision)||keys.has(key(o)))throw Error("invalid obligation");
   keys.add(key(o));
+ }
+ const initial=new Set();
+ for(const fact of verifiedFacts){
+  if(!fact||!str(fact.contract)||!str(fact.scope)||!str(fact.revision)||typeof fact.current!=="boolean"||typeof fact.verified!=="boolean")throw Error("invalid existing fact");
+  if(fact.current&&fact.verified)initial.add(key(fact));
  }
  const candidates=[],excluded=[];
  for(const p of providers){
@@ -23,6 +28,6 @@ export function resolveCapabilities({obligations,providers,budget,planObligation
  // It verifies nothing; it merely expresses the conjunction of required ports.
  if(candidates.length>19||budget>=Number.MAX_SAFE_INTEGER)throw Error("finite planner limit");
  const terminal={id:"terminal",cost:1,requires:[...keys],provides:[],available:true,authorized:true,effect:"local-readonly"};
- const p=planObligations({catalog:[...candidates,terminal],required:["terminal"],budget:budget+1,maxSteps:candidates.length+1});
- return {status:p.status==="PLAN"?"PLAN":"HOLD",providers:p.status==="PLAN"?p.plan.filter(id=>id!=="terminal").map(id=>id.slice(9)):[],cost:p.status==="PLAN"?p.cost-1:null,reason:p.reason??null,excluded,visited:p.visited,authority:"DECLARED_PROVIDER_COMPATIBILITY_ONLY"};
+ const p=planObligations({catalog:[...candidates,terminal],required:["terminal"],initialFacts:[...initial],budget:budget+1,maxSteps:candidates.length+1});
+ return {status:p.status==="PLAN"?"PLAN":"HOLD",providers:p.status==="PLAN"?p.plan.filter(id=>id!=="terminal").map(id=>id.slice(9)):[],cost:p.status==="PLAN"?p.cost-1:null,reason:p.reason??null,excluded,reused:[...keys].filter(k=>initial.has(k)).map(k=>JSON.parse(k)),visited:p.visited,authority:"DECLARED_PROVIDER_COMPATIBILITY_ONLY"};
 }
