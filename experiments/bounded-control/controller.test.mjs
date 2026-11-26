@@ -19,6 +19,10 @@ function checks(run){
     ["no retry",()=>run({...base,propose:()=>[a("x")],execute:()=>({status:"failed"})}).receipts.filter(x=>x.selected).length===1],
     ["negative value",()=>run({...base,propose:()=>[a("x",{scores:{value:.1,confidence:.1,relevance:.1,burden:.9}})],execute:success}).facts.length===0],
     ["cost spent on failure",()=>run({...base,propose:()=>[a("x",{cost:3})],execute:()=>{throw Error("failure")}}).remaining===1],
+    ["mandatory absent from proposal",()=>run({...base,requiredActions:["audit"],propose:()=>[a("x")],execute:success}).reason==="mandatory-hold"],
+    ["mandatory cannot be downgraded",()=>run({...base,requiredActions:["audit"],propose:()=>[a("audit",{mandatory:false,scores:{value:0,confidence:0,relevance:0,burden:1}}),a("x")],execute:success}).receipts[0].selected==="audit"],
+    ["partial mandatory output rejected",()=>run({...base,requiredActions:["audit"],propose:()=>[a("audit",{provides:["a","b"]})],execute:()=>({status:"verified",facts:["a"]})}).reason==="mandatory-failure"],
+    ["pending obligation preserved on budget",()=>run({...base,budget:1,requiredActions:["audit","review"],propose:()=>[a("audit"),a("review")],execute:success}).pending.join()==="review"],
     ["scope frozen",()=>run({...base,propose:s=>{try{s.goal="other"}catch{}return[a("x")]},execute:success}).goal==="test"]
   ];
   return cases.map(([name,test])=>{try{return {name,pass:test()===true}}catch(e){return {name,pass:false,error:String(e)}}});
