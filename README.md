@@ -211,7 +211,7 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 - [Read-set freshness and composition tests](experiments/bounded-control/README.md#priority-driven-product-loop--evidence-freshness-mosaic-and-court-2026-11-27): structural certificate invalidation, combined regression and scored priorities.
 - [Candidate acceptance protocol](docs/candidate-evaluation.md): matched native/legacy/candidate/adaptive evaluation; model outcomes not yet measured.
 - [CACHE candidate](candidates/cache/SKILL.md): minimum sufficient context and selective read-set freshness revalidation; no authority upgrade from a projection.
-- [Experimental candidate bundle](packaging/README.md): immutable eight-skill snapshot, reproducible ZIP builder, and regression receipt; ZIP build and live host acceptance remain open.
+- [Experimental candidate bundle](packaging/README.md): pinned 13-skill candidate inventory, verified native ZIP-builder regression and one-skill AXIOM pilot; complete bundle build and live host acceptance remain open.
 
 - [FORGE candidate](candidates/forge/SKILL.md): verified artifact construction and bounded failure recovery.
 - [TRACE candidate](candidates/trace/SKILL.md): execution provenance, recoverable handoff and delivery verification.
@@ -223,3 +223,5 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 ### Compositional invariant — reusable capability blocks
 
 Skills are reusable capability definitions, not fixed pipeline stages. A task may invoke zero, one or several instances of any skill. Edges belong to the particular invocation and its actual typed inputs, permission, freshness, provenance or resource constraints. There is no mandatory RAVEL root, fixed skill hierarchy or universal sequence. A new observation may replace a subgraph, reuse unaffected results, or start a new invocation of the same capability. Scientific justification must remain acyclic even when research control iterates. Prefer native reasoning if sufficient; parallelism is conditional on actual independence and available execution. Diagrams are examples of task-local compositions, not the architecture's required topology.
+
+- [Capability substitution and selective reuse](docs/capability-substitution.md): compare native and specialized providers against exact obligations; reuse current verified results without a fixed skill hierarchy.
