@@ -1,0 +1,132 @@
+{
+  "format": "skill-workshop-candidate-bundle-v1",
+  "status": "EXPERIMENTAL_NOT_RELEASE",
+  "sourceCommit": "6f862ecd7d956235a24db8f4283c1d4d89e67787",
+  "files": [
+    {
+      "path": "candidates/axiom/SKILL.md",
+      "gitBlob": "25e000dca59ae2c59c1be9a78d94dd60a8df09de",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/cache/SKILL.md",
+      "gitBlob": "a8777f4788173e40e4ef0ba79f3fc17a71e3fadd",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/court/SKILL.md",
+      "gitBlob": "fb67d0cad45a3ed80abcd8d9e29e953ca9379de6",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/lantern/SKILL.md",
+      "gitBlob": "16b2d799b14d1323b65d88020cfa9e46063fe3df",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/mosaic/SKILL.md",
+      "gitBlob": "d9e7cc20b3f41f591b483a1b7970568bfbe9267b",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/pivot/SKILL.md",
+      "gitBlob": "81a82294fa89dc7a592db598025c068c6217e5ba",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/ravel/SKILL.md",
+      "gitBlob": "0eca625b60494d054520939b84a0d9d0cb5c8264",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/scout/SKILL.md",
+      "gitBlob": "65c95c714fc4d6bcf5b162d16e801cacee81620f",
+      "kind": "skill"
+    },
+    {
+      "path": "experiments/bounded-control/composition.test.mjs",
+      "gitBlob": "c163229d65d3166251b4cde8e39a5a5adcc9395a",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/contrast-audit.mjs",
+      "gitBlob": "8a3f92572d4ac75ff74ab9252bad4d7a588ac04a",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/contrast-audit.test.mjs",
+      "gitBlob": "66e007f771c75a35c05deb2ffe9fbdc4dc785774",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/controller.mjs",
+      "gitBlob": "7060646acbc67874dfecfa133fa4893a4745fe52",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/controller.test.mjs",
+      "gitBlob": "5b5c6a77d99ddc0e363595d1d1a93c8a052fd613",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/evidence-certificate.test.mjs",
+      "gitBlob": "2e8f2c26c196920200885b537b8d4e42d9238a40",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/evidence-index.mjs",
+      "gitBlob": "4d668fa8a4c8661979bc46044b199c755fd4aa79",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/evidence-index.test.mjs",
+      "gitBlob": "a31d1644420d4b4d57680493e4eb58c979d897d5",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/fiber-audit.mjs",
+      "gitBlob": "93c43c267ad4cc7a9ac2f8fe3b97cdd48196a390",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/fiber-audit.test.mjs",
+      "gitBlob": "8384c7ec8f2cf5173f66f34d6da3fd3150592a81",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/method-composition.mjs",
+      "gitBlob": "f8c19e045b3e68c88a6d10a369f25ebc432f296d",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/method-composition.test.mjs",
+      "gitBlob": "08a27f512846a5ec8adc766ce008030b3644a",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/obligation-planner.mjs",
+      "gitBlob": "cb65188396b9e3423ab1acf218445de7594de3d5",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/obligation-planner.test.mjs",
+      "gitBlob": "daa0d6080b5075beb4ad97fe8a1283121babac13",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/obligation-pruning.test.mjs",
+      "gitBlob": "7ad6dd4032d8bab0c9a547c33c4d8aa28cc6e94f",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/refinement-selector.mjs",
+      "gitBlob": "c2315fe118bafbd74036915d8485fe8153e1f955",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/refinement-selector.test.mjs",
+      "gitBlob": "7e201a85f5f391644815c5d869b3f2a87206f1d3",
+      "kind": "test"
+    }
+  ]
+}
