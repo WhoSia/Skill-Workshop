@@ -1,7 +1,7 @@
 {
   "format": "skill-workshop-candidate-bundle-v1",
   "status": "EXPERIMENTAL_NOT_RELEASE",
-  "sourceCommit": "d6ae198159f01a7221487c98d2c5d828cc7b2739",
+  "sourceCommit": "d7af3994af08690903c0d7f134b2403004b6bfd4",
   "files": [
     {
       "path": "candidates/atlas/SKILL.md",
@@ -67,6 +67,21 @@
       "path": "candidates/trace/SKILL.md",
       "gitBlob": "bdd229333c5721303f060e48e0ec20d10cb979ba",
       "kind": "skill"
+    },
+    {
+      "path": "experiments/bounded-control/capability-resolver.mjs",
+      "gitBlob": "42cc43e92f6d3ac6e594cb0443c1a9a6aa38f888",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/capability-resolver.test.mjs",
+      "gitBlob": "a9334b9c7672f78cec6eeaf759d55cbec3f2c684",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/capability-reuse.test.mjs",
+      "gitBlob": "1c93c6dcfa2ca5b21579566a1382f6dd4ad7e7b2",
+      "kind": "test"
     },
     {
       "path": "experiments/bounded-control/composition.test.mjs",
@@ -151,6 +166,16 @@
     {
       "path": "experiments/bounded-control/refinement-selector.test.mjs",
       "gitBlob": "7e201a85f5f391644815c5d869b3f2a87206f1d3",
+      "kind": "test"
+    },
+    {
+      "path": "experiments/bounded-control/reuse-registry.mjs",
+      "gitBlob": "b064ca0cee270fe64d616ca5d1bfe0ec4819824f",
+      "kind": "module"
+    },
+    {
+      "path": "experiments/bounded-control/reuse-registry.test.mjs",
+      "gitBlob": "8cb0c8e946d0e9b20709e74ac411b561daa57482",
       "kind": "test"
     }
   ]
