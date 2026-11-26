@@ -154,3 +154,29 @@ Actual V8 comparison of the fetched previous source and revised source: original
 | Release or rename production now | .48 | .50 | .32 | .18 | .65 | hold |
 
 Judgments are not calibrated probabilities. R=relevance, F=feasibility, V=expected product value, E=evidence, B=burden. Existing Research OS consumers and 2.4.4 remain unchanged. Next: verify actual skill activation and output on matched research tasks with direct/legacy/candidate variants, preserve private research data and compare actual resource use. Raw 2.4.4 access and host execution remain unresolved. No GitHub Actions used.
+
+## Product iteration 07 — SCOUT and AXIOM candidate 01 (2026-11-27)
+
+Product objective: reduce redundant retrieval and ineffective mathematical search while preserving decision-relevant evidence and the original research question. Reviewed SCOUT's portable contract, AXIOM's semantic normalization entry, and the cross-domain donor search contract in the owner's authorized research workspace. No private records were copied into this public repository. Neither candidate is a released replacement.
+
+- `candidates/scout/SKILL.md`: 406 whitespace-delimited words. Canonical-first, gap-directed high-recall discovery, source identity/edition, actual access/read status, support/non-support, distinct roots, and explicit unresolved roles. Search discovery has no authority to admit claims. Search breadth is conditional, not ceremonial.
+- `candidates/axiom/SKILL.md`: 452 whitespace-delimited words. Explicit domain and quantifiers, exact structure, minimal counterexamples, assumptions, alternative constructions, and proof versus empirical-model boundaries. A failed universal claim cannot be rescued by silent domain mutation.
+- `fiber-audit.mjs` and `fiber-audit.test.mjs`: optional finite-domain helper, not a general theorem prover. Given exact string keys for state ID, observation and target, group by observation and compare each subsequent target to the first target in that group. Return a conflicting pair when one exists, count ambiguous fibers, and distinguish enumerated-domain consistency from any claim of complete domain coverage. Under ordinary hash-map assumptions, expected linear work in the number of rows versus quadratic exhaustive pair comparisons. String canonicalization and completeness remain caller obligations.
+
+The structural criterion: for functions O:S→Y and T:S→Z on a declared domain S, T factors through O on O(S) iff every O-fiber has constant T. Necessity follows by applying the same factor to equal observations. Sufficiency defines the factor using the common T value in each nonempty fiber. A single conflicting pair disproves factorization on any domain containing those states. No conflict in a sample establishes consistency on that sample only. This is an elementary known criterion, not a novelty claim.
+
+V8 verification: 1,751 checks; 500 generated cases; 243 conflicting cases; all ambiguity counts matched the independent pairwise oracle, all returned witnesses were valid, and reversal of enumeration preserved the verdict and ambiguity count. Across the generated cohort, 25,919 target-to-representative comparisons versus 1,209,902 state pairs. In a structured 10,000-state fixture with 100 fibers: 9,900 comparisons versus 49,995,000 possible pairs. These are operation counts against a full pairwise enumeration, not timing speedups or a comparison with a short-circuit pairwise witness finder. Hash-map and set operations, key length and memory costs are excluded. CLI invocation: `node experiments/bounded-control/fiber-audit.test.mjs`; not independently run in Node CLI here.
+
+Composition example: RAVEL identifies the decision gap; SCOUT resolves a required source if needed; AXIOM tests a structural proposition only on the admitted formal domain. The presence of all three candidates does not require all three activations. A genuine counterexample can redirect the action immediately; inability to find a source remains a blocker for its required evidence role. No source discovery or finite check grants scientific authority. Do not automatically couple these candidates into a fixed pipeline.
+
+| Decision | R | F | V | E | B (higher = worse) | Disposition |
+|---|---:|---:|---:|---:|---:|---|
+| Source-gap-first SCOUT | 1.00 | .98 | .98 | .83 | .15 | prototype |
+| Preserve access and source identity distinctions | 1.00 | .99 | .99 | .92 | .07 | prototype |
+| Structure-first AXIOM with explicit falsifier | 1.00 | .98 | .99 | .87 | .18 | prototype |
+| Optional finite fiber checker | .93 | .99 | .89 | .96 | .09 | implemented/tested |
+| Make every AXIOM task a fiber analysis | .25 | .99 | .18 | .12 | .50 | reject |
+| Force RAVEL→SCOUT→AXIOM on every task | .35 | .99 | .25 | .18 | .55 | reject |
+| Live matched candidate/legacy/native task comparison | 1.00 | .68 | 1.00 | .86 | .45 | next |
+
+R=relevance, F=feasibility, V=expected product value, E=evidence, B=burden; provisional reviewer estimates, not calibrated probabilities. Actual model activation, research quality, token/latency and old release equivalence remain unmeasured. Existing 2.4.4 package and consumer contracts unchanged; no Actions used.
