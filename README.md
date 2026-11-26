@@ -210,3 +210,4 @@ The goal is a better usable skill product, not an ever-growing orchestration fra
 - [COURT candidate](candidates/court/SKILL.md): claim-specific adjudication and selective evidence revalidation.
 - [Read-set freshness and composition tests](experiments/bounded-control/README.md#priority-driven-product-loop--evidence-freshness-mosaic-and-court-2026-11-27): structural certificate invalidation, combined regression and scored priorities.
 - [Candidate acceptance protocol](docs/candidate-evaluation.md): matched native/legacy/candidate/adaptive evaluation; model outcomes not yet measured.
+- [CACHE candidate](candidates/cache/SKILL.md): minimum sufficient context and selective read-set freshness revalidation; no authority upgrade from a projection.
