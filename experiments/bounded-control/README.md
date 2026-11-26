@@ -180,3 +180,28 @@ Composition example: RAVEL identifies the decision gap; SCOUT resolves a require
 | Live matched candidate/legacy/native task comparison | 1.00 | .68 | 1.00 | .86 | .45 | next |
 
 R=relevance, F=feasibility, V=expected product value, E=evidence, B=burden; provisional reviewer estimates, not calibrated probabilities. Actual model activation, research quality, token/latency and old release equivalence remain unmeasured. Existing 2.4.4 package and consumer contracts unchanged; no Actions used.
+
+## Product iteration 08 — LANTERN and PIVOT candidate 01 (2026-11-27)
+
+Product objective: turn a discovered obstruction into a useful next research action, without treating repeated adversarial review or reframing as automatic progress. Reviewed the historical LANTERN and PIVOT semantic contracts and the frozen four-episode PIVOT shadow router benchmark on the authorized private research surface. The historical labels are design context, not an evaluation of these candidates; the old benchmark was not altered.
+
+- `candidates/lantern/SKILL.md` (374 whitespace-delimited words): targeted admissible counterexamples, rival mechanisms, failure-class separation, nonredundant attacks and next discriminating test. No adjudication authority; absence of a counterexample is not proof.
+- `candidates/pivot/SKILL.md` (452 words): representation-sensitive trigger, NO_TRIGGER for missing evidence or changing frozen execution, and explicitly separate SHADOW_ONLY exploration for a future permitted question. Preserve original explanandum, compare against the original representation, never claim outcome improvement from a change of plan.
+- `refinement-selector.mjs`: optional exact finite observation design helper. Given a finite enumeration, initial observation and target labels, admitted candidate channels with exact values and positive integral costs, and a budget, find a minimum-cost subset making the target constant on every refined observation fiber. No claim of real-world availability, measurement accuracy, causal identification or domain completeness. At most 12 candidate channels. No adaptive acquisition or repeated channels; costs are declared and additive.
+
+Method: retain only target-mixed observation groups. Split them by each chosen channel; discard pure groups. If a channel is constant on every remaining mixed group, it cannot distinguish a conflicting pair in any subsequent subgroup, so skip it. Search subsets in increasing input index order; a positive-cost extension cannot improve a known solution of equal or lower cost. This is exact on the supplied finite model, with exponential worst-case search in channel count. It is not an optimization of a prior production implementation. Alternate equal-cost plans are not enumerated; the first minimum under traversal order is returned.
+
+Verification: V8 executed 1,591 checks, including 600 generated finite models with independent exhaustive subset-and-pair oracle, returned-plan cost/validity checks and row-order permutation checks. 381/600 have feasible refinements (76 already identified, requiring zero cost); 219/600 have none within the declared candidate set and budget. All 600 agree with the oracle's minimum cost or infeasibility; 2,930 search states visited. These are artificial problem frequencies and deterministic correctness, not measured research quality or a wall-time improvement. A constructive XOR fixture requires two jointly informative unit-cost observations rather than a cost-three full-state observation. A one-unit budget does not suffice. If an unadmitted channel is the only informative one, no plan is returned. CLI: `node experiments/bounded-control/refinement-selector.test.mjs`; this independent CLI path was not run here.
+
+Composition: AXIOM supplies the precise proposition/domain, LANTERN finds a valid conflicting witness, and PIVOT evaluates whether a representation change can preserve the objective while improving the next test. SCOUT is appropriate if the missing distinction requires source acquisition, rather than an encoding change. RAVEL decides whether to continue. None is a mandatory step merely because available. No candidate supplies scientific adjudication.
+
+| Decision | R | F | V | E | B (higher = worse) | Disposition |
+|---|---:|---:|---:|---:|---:|---|
+| Targeted admissible LANTERN attacks | 1.00 | .98 | .99 | .88 | .18 | prototype |
+| Freeze-preserving PIVOT abstention | 1.00 | .99 | .97 | .94 | .09 | prototype |
+| Minimum-cost finite refinement helper | .96 | .98 | .94 | .96 | .16 | implemented/tested |
+| Treat missing evidence as a representation problem | .30 | .99 | .15 | .10 | .50 | reject |
+| Claim live model improvement from synthetic tests | .20 | .99 | .10 | .05 | .08 | reject |
+| Prospective comparison of integrated and native behavior | 1.00 | .72 | 1.00 | .86 | .46 | next |
+
+R=relevance, F=feasibility, V=expected product value, E=evidence, B=burden; subjective decision estimates, not calibrated probabilities. Actual activation, model-level quality and resource use, exact legacy comparison and consumer equivalence remain open. Existing 2.4.4 distribution and Research OS unchanged. No GitHub Actions used.
