@@ -1,8 +1,13 @@
 {
   "format": "skill-workshop-candidate-bundle-v1",
   "status": "EXPERIMENTAL_NOT_RELEASE",
-  "sourceCommit": "2d4a08732565e317f0f840c82e8c64284e93bf54",
+  "sourceCommit": "d6ae198159f01a7221487c98d2c5d828cc7b2739",
   "files": [
+    {
+      "path": "candidates/atlas/SKILL.md",
+      "gitBlob": "f07238adcb6484dce1d041a5be344f4a67469928",
+      "kind": "skill"
+    },
     {
       "path": "candidates/axiom/SKILL.md",
       "gitBlob": "25e000dca59ae2c59c1be9a78d94dd60a8df09de",
@@ -34,6 +39,11 @@
       "kind": "skill"
     },
     {
+      "path": "candidates/orbit/SKILL.md",
+      "gitBlob": "b99a673953319bc04df853e6fcc4d00f1974d287",
+      "kind": "skill"
+    },
+    {
       "path": "candidates/pivot/SKILL.md",
       "gitBlob": "81a82294fa89dc7a592db598025c068c6217e5ba",
       "kind": "skill"
@@ -46,6 +56,11 @@
     {
       "path": "candidates/scout/SKILL.md",
       "gitBlob": "65c95c714fc4d6bcf5b162d16e801cacee81620f",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/sentinel/SKILL.md",
+      "gitBlob": "1d2a494d6032ef86b0667fa42885ce1f6346dfbc",
       "kind": "skill"
     },
     {
