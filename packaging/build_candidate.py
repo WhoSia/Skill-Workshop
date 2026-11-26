@@ -22,7 +22,7 @@ def build(repo, manifest_path, output):
     names = set()
     for item in manifest["files"]:
         path, blob, kind = item["path"], item["gitBlob"], item["kind"]
-        valid = (kind == "skill" and re.fullmatch(r"candidates/[a-z0-9-]+/SKILL\.md", path)) or (kind in ("module", "test") and re.fullmatch(r"experiments/bounded-control/[a-z0-9-]+\.mjs", path))
+        valid = (kind == "skill" and re.fullmatch(r"candidates/[a-z0-9-]+/SKILL\.md", path)) or (kind == "module" and re.fullmatch(r"experiments/bounded-control/[a-z0-9-]+\.mjs", path)) or (kind == "test" and re.fullmatch(r"experiments/bounded-control/[a-z0-9-]+\.test\.mjs", path))
         if not valid or path in entries or not re.fullmatch(r"[0-9a-f]{40}", blob):
             raise ValueError("invalid or duplicate member: " + path)
         data = git(repo, "show", commit + ":" + path)
