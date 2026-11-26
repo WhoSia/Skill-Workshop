@@ -190,3 +190,5 @@ Prefer native reasoning or a compact fixed template when it is sufficient; local
 ## Executable research experiments
 
 - [Bounded control experiment](experiments/bounded-control/README.md): minimal synchronous research control loop, scored candidate selection, independent admission gates and mandatory-obligation tracking. Run `node experiments/bounded-control/controller.test.mjs`. Synthetic functional checks only; no production runtime or Research OS migration.
+
+- [Decision-aware method composition](experiments/bounded-control/method-composition.mjs): finite optional-method selection experiment comparing direct, optimal fixed, greedy adaptive and exact adaptive policies. [Reproduction and limitations](experiments/bounded-control/README.md#ravel-iteration-04--decision-aware-method-composition-2026-11-27). The exact solver is a research reference, not the default routing policy; real research outcomes and coordination overhead remain unmeasured.
