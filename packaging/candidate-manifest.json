@@ -1,7 +1,7 @@
 {
   "format": "skill-workshop-candidate-bundle-v1",
   "status": "EXPERIMENTAL_NOT_RELEASE",
-  "sourceCommit": "6f862ecd7d956235a24db8f4283c1d4d89e67787",
+  "sourceCommit": "2d4a08732565e317f0f840c82e8c64284e93bf54",
   "files": [
     {
       "path": "candidates/axiom/SKILL.md",
@@ -16,6 +16,11 @@
     {
       "path": "candidates/court/SKILL.md",
       "gitBlob": "fb67d0cad45a3ed80abcd8d9e29e953ca9379de6",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/forge/SKILL.md",
+      "gitBlob": "163c4ac4f3304a00d510fd46c689466b4e427a6e",
       "kind": "skill"
     },
     {
@@ -41,6 +46,11 @@
     {
       "path": "candidates/scout/SKILL.md",
       "gitBlob": "65c95c714fc4d6bcf5b162d16e801cacee81620f",
+      "kind": "skill"
+    },
+    {
+      "path": "candidates/trace/SKILL.md",
+      "gitBlob": "bdd229333c5721303f060e48e0ec20d10cb979ba",
       "kind": "skill"
     },
     {
