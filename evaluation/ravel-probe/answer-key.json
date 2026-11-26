@@ -1,0 +1,83 @@
+{
+  "format": "workshop-ravel-decision-probe-v1",
+  "scope": "Exact decisions and numeric outputs only; reason is separately reviewed, not mechanically scored. Not a measure of general research quality.",
+  "answers": [
+    {
+      "id": "routine",
+      "action": "direct-answer",
+      "status": "complete",
+      "reason": "43; no material uncertainty"
+    },
+    {
+      "id": "shared",
+      "action": "reuse-D-and-run-A-B",
+      "status": "plan",
+      "value": 7,
+      "reason": "current shared prerequisite, both obligations"
+    },
+    {
+      "id": "blocked",
+      "action": "request-original-or-hold",
+      "status": "hold",
+      "reason": "summary cannot substitute for original measurement"
+    },
+    {
+      "id": "frozen",
+      "action": "retain-original-and-separate-new-study",
+      "status": "reject",
+      "reason": "0.76 below frozen 0.80"
+    },
+    {
+      "id": "joint",
+      "action": "read-both-bits",
+      "status": "plan",
+      "value": 2,
+      "reason": "single bit has no XOR information"
+    },
+    {
+      "id": "interrupted",
+      "action": "inspect-remote-state",
+      "status": "unknown",
+      "reason": "commit/delivery status unobserved"
+    },
+    {
+      "id": "stale",
+      "action": "reverify-A-reuse-B",
+      "status": "plan",
+      "value": 2,
+      "reason": "A changed, B current"
+    },
+    {
+      "id": "parallel",
+      "action": "parallel-then-merge",
+      "status": "plan",
+      "value": 7,
+      "reason": "max(3,5)+2"
+    },
+    {
+      "id": "rival",
+      "action": "retain-both-comparisons",
+      "status": "reject",
+      "value": -0.04,
+      "reason": "strong baseline exceeds candidate"
+    },
+    {
+      "id": "irrelevant",
+      "action": "test-distinct-rival",
+      "status": "reject",
+      "reason": "original falsified; new test discriminates"
+    },
+    {
+      "id": "scope",
+      "action": "report-engineering-pass-separately",
+      "status": "hold",
+      "reason": "no outcome evidence"
+    },
+    {
+      "id": "stop",
+      "action": "deliver-and-stop",
+      "status": "complete",
+      "reason": "all obligations fulfilled; no additional value"
+    }
+  ]
+}
