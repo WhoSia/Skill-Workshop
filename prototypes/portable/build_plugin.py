@@ -34,6 +34,10 @@ def build(source: Path, output: Path):
         if p.is_symlink() or not p.is_file() or not p.resolve().is_relative_to(source.parent.parent.resolve()):
             raise ValueError('invalid helper source: ' + str(p))
         files['workshop/scripts/' + p.name] = p.read_bytes()
+    oracle = source.parent.parent / 'evaluation' / 'exact-inquiry' / 'oracle.mjs'
+    if oracle.is_symlink() or not oracle.is_file() or not oracle.resolve().is_relative_to(source.parent.parent.resolve()):
+        raise ValueError('invalid inquiry oracle source')
+    files['workshop/scripts/inquiry-oracle.mjs'] = oracle.read_bytes()
     root = meta['name'] + '/'
     entries = {root + 'plugin.json': manifest, **{root + 'skills/' + k: v for k, v in files.items()}}
     with zipfile.ZipFile(output, 'x', compression=zipfile.ZIP_STORED) as archive:
