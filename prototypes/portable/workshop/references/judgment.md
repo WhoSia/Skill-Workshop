@@ -2,6 +2,8 @@
 
 **Compare rivals.** Specify the claim, criteria, relevant alternatives, strongest comparison and evidence class. Preserve a frozen test's original outcome. An improvement over a weak baseline does not establish superiority over a stronger one. Prefer a test that can change the decision; if additional work adds no information or deliverable value, stop.
 
+**Separate perspectives (PRISM).** Partition a contested decision by the actual questions, evidence classes and authority domains. Keep performance, correctness, user utility and scientific validity distinct when their criteria differ. Record shared sources and real conflicts; multiple interpretations of one source are not independent replications. No viewpoint can decide an unrelated claim merely by having standing in its own domain.
+
 **Integrate (MOSAIC).** Align claim, scope, source and revision before combining results. Deduplicate common provenance, retain material disagreement and missing evidence. Distinguish direct observations from interpretations and new hypotheses. A derivative cannot inherit more authority than its sources support. Preserve the original records.
 
 **Adjudicate (COURT).** Use claim-specific acceptance only when a consequential decision needs it. Distinguish permission, execution, artifact integrity, formal validity, empirical outcome, generalization and novelty. Accept a claim only within admitted evidence and criteria. Hold when required evidence is missing; reject when an applicable decisive counterexample or failed frozen criterion defeats the claim. Do not promote a build or proxy to a human or scientific outcome. Scope widening needs explicit new justification.
