@@ -3,7 +3,7 @@ export function solveInquiry(task){
  const {channels,states}=task;
  if(!Array.isArray(channels)||channels.length>12||!Array.isArray(states)||!states.length||states.length>4096)throw Error("finite domain limit");
  const ids=channels.map(c=>c.id);
- if(new Set(ids).size!==ids.length||channels.some(c=>typeof c.id!=="string"||!c.id||!Number.isSafeInteger(c.cost)||c.cost<=0||c.cost>Number.MAX_SAFE_INTEGER/12)||new Set(states.map(s=>s.id)).size!==states.length||states.some(s=>typeof s.id!=="string"||!s.id||![0,1].includes(s.target)||ids.some(id=>![0,1].includes(s.observations?.[id]))))throw Error("invalid finite domain");
+ if(new Set(ids).size!==ids.length||channels.some(c=>typeof c.id!=="string"||!c.id||!Number.isSafeInteger(c.cost)||c.cost<=0||c.cost>Number.MAX_SAFE_INTEGER/(12*4096))||new Set(states.map(s=>s.id)).size!==states.length||states.some(s=>typeof s.id!=="string"||!s.id||![0,1].includes(s.target)||ids.some(id=>![0,1].includes(s.observations?.[id]))))throw Error("invalid finite domain");
  const group=new Map();
  for(const s of states){const k=ids.map(id=>s.observations[id]).join("");if(group.has(k)&&group.get(k).target!==s.target)return {status:"impossible",witness:[group.get(k).id,s.id]};group.set(k,s)}
  const memo=new Map();
