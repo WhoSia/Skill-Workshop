@@ -29,6 +29,10 @@ if (adaptive) {
     let unsupported = false, obstruction = null;
     for (const [observation, group] of groups) {
       const targets = [...new Set(group.map(r => r.target))];
+      if (targets.length === 1) {
+        policies.push({ observation, cost: 0, tree: { target: targets[0] } });
+        continue;
+      }
       const levels = new Map(usable.map(c => [c.id, [...new Set(group.map(r => r.values[c.id]))]]));
       if (targets.length > 2 || [...levels.values()].some(v => v.length > 2)) {
         unsupported = true;
