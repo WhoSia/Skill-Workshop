@@ -1,0 +1,22 @@
+--- a/prototypes/portable/workshop/scripts/finite-observation.mjs
++++ b/prototypes/portable/workshop/scripts/finite-observation.mjs
+@@ -66,4 +66,20 @@
+   }
+ }
++// Unsupported search is not proof of nonidentifiability. Look for a
++// full-admitted-observation obstruction only if no fixed solution exists.
++if (result.adaptive?.status === "UNSUPPORTED" && refinement.plan === null) {
++  const usable = channels.filter(c => c.admitted === true);
++  const signatures = new Map();
++  for (const r of rows) {
++    const signature = JSON.stringify([r.observation, ...usable.map(c => r.values[c.id])]);
++    const prior = signatures.get(signature);
++    if (prior && prior.target !== r.target) {
++      result.adaptive = { status: "IMPOSSIBLE_ON_ENUMERATED_DOMAIN",
++        witness: { observation: r.observation, states: [prior.id, r.id] } };
++      break;
++    }
++    if (!prior) signatures.set(signature, r);
++  }
++}
+ console.log(JSON.stringify(result, null, 2));
