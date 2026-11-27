@@ -1,5 +1,7 @@
 /** Exact finite binary observation design; no real-world identification claim. */
-export function solveInquiry(task){
+export function solveInquiry(task){return solve(task,false)}
+export function solveAdaptiveInquiry(task){return solve(task,true)}
+function solve(task,adaptiveOnly){
  const {channels,states}=task;
  if(!Array.isArray(channels)||channels.length>12||!Array.isArray(states)||!states.length||states.length>4096)throw Error("finite domain limit");
  const ids=channels.map(c=>c.id);
@@ -7,21 +9,24 @@ export function solveInquiry(task){
  const group=new Map();
  for(const s of states){const k=ids.map(id=>s.observations[id]).join("");if(group.has(k)&&group.get(k).target!==s.target)return {status:"impossible",witness:[group.get(k).id,s.id]};group.set(k,s)}
  const memo=new Map();
- function dp(rows,mask){
+ function dp(rows,mask,bits){
   if(rows.every(r=>r.target===rows[0].target))return {cost:0,tree:{target:rows[0].target}};
-  const key=mask+":"+rows.map(r=>r.id).map(JSON.stringify).join(",");
+  // Within one binary universe, mask and observed bits determine the compatible rows.
+  const key=mask*(1<<channels.length)+bits;
   if(memo.has(key))return memo.get(key);
   let best=null;
   for(let i=0;i<channels.length;i++){
    if(mask&(1<<i))continue;
    const c=channels[i],a=rows.filter(r=>r.observations[c.id]===0),b=rows.filter(r=>r.observations[c.id]===1);
    if(!a.length||!b.length)continue;
-   const x=dp(a,mask|(1<<i)),y=dp(b,mask|(1<<i)),cost=c.cost+Math.max(x.cost,y.cost);
+   const x=dp(a,mask|(1<<i),bits),y=dp(b,mask|(1<<i),bits|(1<<i)),cost=c.cost+Math.max(x.cost,y.cost);
    if(!best||cost<best.cost)best={cost,tree:{channel:c.id,branches:{"0":x.tree,"1":y.tree}}};
   }
   if(!best)throw Error("unresolved full observation");
   memo.set(key,best);return best;
  }
+ const adaptive=dp(states,0,0);
+ if(adaptiveOnly)return {status:"possible",adaptive,subproblems:memo.size};
  let fixed=null;
  for(let mask=0;mask<2**channels.length;mask++){
   const chosen=channels.filter((_,i)=>mask&(1<<i)),cost=chosen.reduce((s,c)=>s+c.cost,0);
@@ -30,7 +35,6 @@ export function solveInquiry(task){
   for(const r of states){const k=chosen.map(c=>r.observations[c.id]).join("");if(seen.has(k)&&seen.get(k)!==r.target){good=false;break}seen.set(k,r.target)}
   if(good)fixed={cost,channels:chosen.map(c=>c.id)};
  }
- const adaptive=dp(states,0);
  return {status:"possible",adaptive,fixed,subproblems:memo.size};
 }
 export function verifyInquiry(task,answer,oracle=solveInquiry(task)){
