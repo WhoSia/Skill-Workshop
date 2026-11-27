@@ -30,7 +30,7 @@ def build(source: Path, output: Path):
     scripts = skill / 'scripts'
     cli = scripts / 'finite-observation.mjs'
     helpers = source.parent.parent / 'experiments' / 'bounded-control'
-    for p in [cli, helpers / 'fiber-audit.mjs', helpers / 'refinement-selector.mjs']:
+    for p in [cli, scripts / 'decision-tradeoff.mjs', helpers / 'fiber-audit.mjs', helpers / 'refinement-selector.mjs']:
         if p.is_symlink() or not p.is_file() or not p.resolve().is_relative_to(source.parent.parent.resolve()):
             raise ValueError('invalid helper source: ' + str(p))
         files['workshop/scripts/' + p.name] = p.read_bytes()
