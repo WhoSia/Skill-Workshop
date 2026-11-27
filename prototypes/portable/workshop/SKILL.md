@@ -13,11 +13,11 @@ Read the relevant reference when its specific problem arises; there is no mandat
 
 - **[Structure](references/structure.md)** — formalization, invariants and counterexamples (AXIOM, LANTERN).
 - **[Representation](references/representation.md)** — reframing and adaptive observation (PIVOT).
-- **[Discovery](references/discovery.md)** — canonical sources and missing evidence (SCOUT).
+- **[Discovery](references/discovery.md)** — canonical sources, missing evidence and transferable methods (SCOUT).
 - **[Execution](references/execution.md)** — implement the smallest complete solution, coordinate dependent work, recover from failures, verify the actual deliverable (FORGE, ORBIT, SENTINEL).
 - **[Continuity](references/continuity.md)** — recover prior work, preserve original ideas and dependencies, avoid stale reuse, resume interrupted work (ATLAS, CACHE, TRACE, NAPKIN).
 - **[Transition](references/transition.md)** — interface changes, regime equivalence and legal resumption (ADAPTER, HARBOR, STEWARD).
-- **[Judgment](references/judgment.md)** — compare rivals, integrate branches, respect claim scope, evaluate acceptance and stop or redirect (MOSAIC, COURT, RAVEL).
+- **[Judgment](references/judgment.md)** — compare rivals, integrate branches, respect claim scope, evaluate acceptance and stop or redirect (PRISM, MOSAIC, COURT, RAVEL).
 
 Choose a next action that changes a meaningful decision or completes a necessary deliverable. Compare its benefit, cost and constraints with direct work; use 0–1 estimates if useful, never as measured probabilities. Execute feasible authorized actions and inspect results. If a new result changes the bottleneck, reconsider only the affected work. Stop when the requested result is complete or further work cannot justify its cost; expose required blockers instead of silently replacing the task.
 
