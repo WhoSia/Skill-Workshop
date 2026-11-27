@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "skill-workshop-dev",
+  "version": "0.1.0",
+  "description": "Composable research and development methods with selective reference loading. Private development prototype.",
+  "author": {
+    "name": "WhoSia"
+  },
+  "repository": "https://github.com/WhoSia/Skill-Workshop",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Skill-Workshop Dev",
+        "shortDescription": "Composable research methods",
+        "longDescription": "A lightweight Workshop skill with optional inquiry, execution, continuity and judgment references. Use only relevant methods for substantial research and development tasks.",
+        "developerName": "WhoSia",
+        "category": "Productivity",
+        "capabilities": [],
+        "defaultPrompt": "Use Workshop to advance my research or development task."
+      }
+    }
+  }
+}
