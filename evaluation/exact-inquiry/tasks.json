@@ -1,0 +1,1157 @@
+{
+  "format": "workshop-exact-inquiry-v1",
+  "instruction": "For each finite model, decide whether the target is determined by the available channels. If possible, design an exact adaptive measurement policy minimizing worst-case total cost and report the minimum cost of a fixed measurement set. Supply a tree with internal nodes {channel,branches:{\"0\":node,\"1\":node}} and leaves {target:0 or 1}; only nonempty branches need appear. Supply fixedChannels as a list of channel IDs. If impossible, give two state IDs with identical available observations and different targets. Explain your lower bound or obstruction separately. Do not assume states outside the supplied domain.",
+  "cases": [
+    {
+      "id": "switch",
+      "channels": [
+        {
+          "id": "a",
+          "cost": 1
+        },
+        {
+          "id": "b",
+          "cost": 3
+        },
+        {
+          "id": "c",
+          "cost": 3
+        }
+      ],
+      "states": [
+        {
+          "id": "s0",
+          "observations": {
+            "a": 0,
+            "b": 0,
+            "c": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s1",
+          "observations": {
+            "a": 1,
+            "b": 0,
+            "c": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s2",
+          "observations": {
+            "a": 0,
+            "b": 1,
+            "c": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s3",
+          "observations": {
+            "a": 1,
+            "b": 1,
+            "c": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s4",
+          "observations": {
+            "a": 0,
+            "b": 0,
+            "c": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s5",
+          "observations": {
+            "a": 1,
+            "b": 0,
+            "c": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s6",
+          "observations": {
+            "a": 0,
+            "b": 1,
+            "c": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s7",
+          "observations": {
+            "a": 1,
+            "b": 1,
+            "c": 1
+          },
+          "target": 1
+        }
+      ]
+    },
+    {
+      "id": "selector4",
+      "channels": [
+        {
+          "id": "p",
+          "cost": 1
+        },
+        {
+          "id": "q",
+          "cost": 1
+        },
+        {
+          "id": "u",
+          "cost": 2
+        },
+        {
+          "id": "v",
+          "cost": 2
+        },
+        {
+          "id": "w",
+          "cost": 2
+        },
+        {
+          "id": "z",
+          "cost": 2
+        }
+      ],
+      "states": [
+        {
+          "id": "s0",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s1",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s2",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s3",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s4",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s5",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s6",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s7",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s8",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s9",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s10",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s11",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s12",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s13",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s14",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s15",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s16",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s17",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s18",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s19",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s20",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s21",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s22",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s23",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s24",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s25",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s26",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s27",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s28",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s29",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s30",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s31",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s32",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s33",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s34",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s35",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s36",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s37",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s38",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s39",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s40",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s41",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s42",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s43",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s44",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s45",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s46",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s47",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 0,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s48",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s49",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s50",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s51",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s52",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s53",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s54",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s55",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 0,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s56",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s57",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s58",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s59",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 0,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s60",
+          "observations": {
+            "p": 0,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s61",
+          "observations": {
+            "p": 1,
+            "q": 0,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s62",
+          "observations": {
+            "p": 0,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s63",
+          "observations": {
+            "p": 1,
+            "q": 1,
+            "u": 1,
+            "v": 1,
+            "w": 1,
+            "z": 1
+          },
+          "target": 1
+        }
+      ]
+    },
+    {
+      "id": "parity",
+      "channels": [
+        {
+          "id": "m",
+          "cost": 1
+        },
+        {
+          "id": "n",
+          "cost": 2
+        },
+        {
+          "id": "o",
+          "cost": 3
+        }
+      ],
+      "states": [
+        {
+          "id": "s0",
+          "observations": {
+            "m": 0,
+            "n": 0,
+            "o": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s1",
+          "observations": {
+            "m": 1,
+            "n": 0,
+            "o": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s2",
+          "observations": {
+            "m": 0,
+            "n": 1,
+            "o": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s3",
+          "observations": {
+            "m": 1,
+            "n": 1,
+            "o": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s4",
+          "observations": {
+            "m": 0,
+            "n": 0,
+            "o": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s5",
+          "observations": {
+            "m": 1,
+            "n": 0,
+            "o": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s6",
+          "observations": {
+            "m": 0,
+            "n": 1,
+            "o": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s7",
+          "observations": {
+            "m": 1,
+            "n": 1,
+            "o": 1
+          },
+          "target": 1
+        }
+      ]
+    },
+    {
+      "id": "alias",
+      "channels": [
+        {
+          "id": "r",
+          "cost": 1
+        },
+        {
+          "id": "s",
+          "cost": 2
+        }
+      ],
+      "states": [
+        {
+          "id": "s0",
+          "observations": {
+            "r": 0,
+            "s": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s1",
+          "observations": {
+            "r": 1,
+            "s": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s2",
+          "observations": {
+            "r": 0,
+            "s": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s3",
+          "observations": {
+            "r": 1,
+            "s": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s4",
+          "observations": {
+            "r": 0,
+            "s": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s5",
+          "observations": {
+            "r": 1,
+            "s": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s6",
+          "observations": {
+            "r": 0,
+            "s": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s7",
+          "observations": {
+            "r": 1,
+            "s": 1
+          },
+          "target": 0
+        }
+      ]
+    },
+    {
+      "id": "expensive-switch",
+      "channels": [
+        {
+          "id": "g",
+          "cost": 9
+        },
+        {
+          "id": "h",
+          "cost": 1
+        },
+        {
+          "id": "j",
+          "cost": 1
+        }
+      ],
+      "states": [
+        {
+          "id": "s0",
+          "observations": {
+            "g": 0,
+            "h": 0,
+            "j": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s1",
+          "observations": {
+            "g": 1,
+            "h": 0,
+            "j": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s2",
+          "observations": {
+            "g": 0,
+            "h": 1,
+            "j": 0
+          },
+          "target": 1
+        },
+        {
+          "id": "s3",
+          "observations": {
+            "g": 1,
+            "h": 1,
+            "j": 0
+          },
+          "target": 0
+        },
+        {
+          "id": "s4",
+          "observations": {
+            "g": 0,
+            "h": 0,
+            "j": 1
+          },
+          "target": 0
+        },
+        {
+          "id": "s5",
+          "observations": {
+            "g": 1,
+            "h": 0,
+            "j": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s6",
+          "observations": {
+            "g": 0,
+            "h": 1,
+            "j": 1
+          },
+          "target": 1
+        },
+        {
+          "id": "s7",
+          "observations": {
+            "g": 1,
+            "h": 1,
+            "j": 1
+          },
+          "target": 1
+        }
+      ]
+    }
+  ]
+}
