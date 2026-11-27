@@ -56,3 +56,23 @@ Frozen development snapshot: 13802938dde2efe326348c58dc08bf819fb4071f. Compare t
 | More unrelated infrastructure | .45 | .40 | .30 | .95 | .45 | defer |
 
 Scores are subjective 0–1 design estimates, not measured effects. No GitHub Actions, consumer migration or official release. MCP-Hub relevance assessed by tool discovery, no independent invocation established; smallest-change design and text-size measurement applied, no performance claim or native port justified.
+
+## Exact Inquiry — open-ended research work samples
+
+Frozen development snapshot: 2bb21dcbad47caccb7f1ffc87661e0a0870884ee. Five finite binary observation problems, 96 supplied states, no answer choices. Each asks for a constructed adaptive policy and fixed measurement set with exact costs, or a concrete indistinguishable-state counterexample. The prompt explicitly specifies worst-case cost, the output certificate schema, and the finite domain. Task inputs and evaluator are separate; provide only tasks.json to executing arms. Same-assistant authored development set, not an independent held-out model benchmark. No model arm outputs.
+
+| Case | Minimax adaptive cost | Minimum fixed cost |
+|---|---:|---:|
+| switch | 4 | 7 |
+| selector4 | 4 | 10 |
+| parity | 6 | 6 |
+| alias | impossible | impossible |
+| expensive-switch | 10 | 11 |
+
+The finite minimax solver uses partition recursion and memoization. The fixed solver enumerates subsets. A separate certificate verifier walks every state along the submitted policy, checks branch coverage, repeated channels, target correctness and cost, and compares against the exact oracle. It accepts alternative optimal policies, not only a canonical tree. The verifier's optional oracle argument is trusted evaluator input, never a model answer field. Reasons and analytic lower-bound proofs require separate human assessment. The solver supports up to 12 binary channels and 4096 supplied states with positive bounded integer costs; worst-case exponential resource use remains. This is not a noisy, continuous or causal-inference solver.
+
+577 checks in V8: 180 generated models, independent budget-feasibility search and pairwise fixed-sufficiency oracle; 102 impossible, 7 strict adaptive improvements among the generated models. A specific valid alternative policy for expensive-switch achieves uniform mean 6.5 but worst cost 11; the minimax optimum is 10 with mean 10 for the returned policy. The verifier rejects the alternative under the declared minimax objective, not because the policy is incorrect. No native Node CLI or model performance claim.
+
+Extracted an optional method donor, `evaluation/method-donors/adaptive-discrimination.md`, for AXIOM/PIVOT/LANTERN/RAVEL/native reasoning. It distinguishes identifiability, adaptive policy, fixed baseline and cost objective. No mandatory call order or new institution. It is not added to the production candidate until a useful behavioral comparison supports that change.
+
+Next: diversify to open-ended research tasks outside finite deterministic observation; test actual candidate method use against direct native reasoning. Avoid adding more solvers unless a genuine research method or practical bottleneck warrants them. Priority estimates (R,V,E,F,B): exact inquiry work sample (1,.99,.95,.98,.20) complete; optional method donor (.98,.97,.91,.98,.12) complete; independent model trial (1,1,.90,.20,.45) blocked; distinct empirical reasoning work sample (.99,.98,.89,.96,.20) next. MCP-Hub testing discovery returned internal failure; no separate skill execution claimed. No Rust port or speed claim.
