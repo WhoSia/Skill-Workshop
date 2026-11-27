@@ -9,9 +9,11 @@ Advance the requested result, not the number of methods used. Begin with native 
 
 ## Select only useful methods
 
-Read the relevant reference when its specific problem arises; there is no mandatory order or minimum number. Combine, repeat, replace or omit methods as the result changes. Do not load every reference by default.
+Read the relevant reference when its specific problem arises; there is no mandatory order or minimum number. Combine, repeat, replace or omit methods as the result changes. Do not load every reference by default. If a named method is requested, read its relevant reference directly; do not load an unrelated group.
 
-- **[Inquiry](references/inquiry.md)** — formal structure, missing information, counterexamples, discriminating tests, representation changes.
+- **[Structure](references/structure.md)** — formalization, invariants and counterexamples (AXIOM, LANTERN).
+- **[Representation](references/representation.md)** — reframing and adaptive observation (PIVOT).
+- **[Discovery](references/discovery.md)** — canonical sources and missing evidence (SCOUT).
 - **[Execution](references/execution.md)** — implement the smallest complete solution, coordinate dependent work, recover from failures, verify the actual deliverable.
 - **[Continuity](references/continuity.md)** — recover prior work, preserve original ideas and dependencies, avoid stale reuse, resume interrupted work.
 - **[Judgment](references/judgment.md)** — compare rivals, integrate branches, respect claim scope, evaluate acceptance and stop or redirect.
