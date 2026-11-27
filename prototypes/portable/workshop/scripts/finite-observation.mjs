@@ -20,11 +20,15 @@ if (adaptive) {
   }
   // The original observation is free; each policy starts in its own fiber.
   // Keep this optional exact search bounded; ordinary fixed mode is unchanged.
-  if (usable.length > 8 || rows.length > 512 ||
+  if (audit.ambiguousFibers === 0) {
+    result.adaptive = { status: "POLICY_FOUND", cost: 0,
+      policies: [...groups].map(([observation, group]) => ({ observation, cost: 0, tree: { target: group[0].target } })),
+      objective: "MINIMAX_ADDITIONAL_COST_CONDITIONAL_ON_INITIAL_OBSERVATION" };
+  } else if (usable.length > 8 || rows.length > 512 ||
       usable.some(c => c.cost > Number.MAX_SAFE_INTEGER / (12 * 4096))) {
     result.adaptive = { status: "UNSUPPORTED", reason: "adaptive model exceeds bounded search limits" };
   } else {
-    const { solveInquiry } = await import("./inquiry-oracle.mjs");
+    const { solveAdaptiveInquiry } = await import("./inquiry-oracle.mjs");
     const policies = [];
     let unsupported = false, obstruction = null;
     for (const [observation, group] of groups) {
@@ -42,7 +46,7 @@ if (adaptive) {
         id: r.id, target: targets.indexOf(r.target),
         observations: Object.fromEntries(usable.map(c => [c.id, levels.get(c.id).indexOf(r.values[c.id])]))
       })) };
-      const solved = solveInquiry(model);
+      const solved = solveAdaptiveInquiry(model);
       if (solved.status === "impossible") {
         obstruction = { observation, states: solved.witness };
         break;
